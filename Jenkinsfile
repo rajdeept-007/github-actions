@@ -9,17 +9,17 @@ pipeline {
         }
         stage("Build") {
             steps{
-                sh 'mvn clean compile'
+                bat 'mvn clean compile'
             }
         }
         stage("Test") {
             steps{
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
         stage("Package") {
             steps{
-                sh 'mvn package'
+                bat 'mvn package'
             }
         }
         stage("Archive Artifacts") {
@@ -29,7 +29,7 @@ pipeline {
         }
         stage("Run") {
             steps{
-                sh 'java -cp target/classes App'
+                bat 'java -cp target/classes App'
             }
         }
     }
